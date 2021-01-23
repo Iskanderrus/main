@@ -5,12 +5,9 @@ import pprint
 res = requests.get('https://news.ycombinator.com/news')
 soup = BeautifulSoup(res.text, 'html.parser')
 
-links = soup.select('.storylink')
-subtext = soup.select('.subtext')
-
 
 def sort_stories_by_votes(hnlist):
-    return sorted(hnlist, key= lambda k:k['votes'], reverse=True)
+    return sorted(hnlist, key=lambda k: k['votes'], reverse=True)
 
 
 def create_custom_hn(links, subtext):
@@ -25,5 +22,10 @@ def create_custom_hn(links, subtext):
                 hn.append({'title': title, 'link': href, 'votes': points})
     return sort_stories_by_votes(hn)
 
+for i in range(1, 3):
+    res = requests.get(f'https://news.ycombinator.com/news?p={i}')
+    soup = BeautifulSoup(res.text, 'html.parser')
+    links = soup.select('.storylink')
+    subtext = soup.select('.subtext')
 
-pprint.pprint(create_custom_hn(links, subtext))
+    pprint.pprint(create_custom_hn(links, subtext))
