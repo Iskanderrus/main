@@ -1,4 +1,4 @@
-x, y = map(int, input('Enter two digits separated by comma: ').split(','))
+x, y = map(int, input('Enter here two digits separated by comma: ').split(','))
 lst = []
 
 for i in range(x):
