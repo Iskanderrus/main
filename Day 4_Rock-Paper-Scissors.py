@@ -58,4 +58,4 @@ while not x:
         x = True
         print(f'You {names[int(your_choice)]}\nComputer {names[computer_choice]}\n You lost.')
     else:
-        print("Try again.")
+        print("It's a draw! Try again.")
