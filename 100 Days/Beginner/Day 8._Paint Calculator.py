@@ -1,6 +1,6 @@
 from math import ceil
 
-#Write your code below this line 👇
+
 def paint_calc(height, width, cover):
     cans = (height * width) / cover
     print(f'You would need {ceil(cans)} cans of paint.')
