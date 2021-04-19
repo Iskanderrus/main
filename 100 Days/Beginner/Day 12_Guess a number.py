@@ -5,7 +5,7 @@ print("Welcome to the Number Guessing Game!")
 print("I'm thinking of a number between 1 and 100.")
 level = input("Choose a difficulty. Type 'easy' or 'hard': ")
 game_over = False
-number = random.randint(1, 101)
+number = random.randint(1, 100)
 
 if level == "hard":
     attempts = 5
