@@ -107,7 +107,7 @@ while not machine_off:
         money_sum = (coins["quarters"] * 0.25) + (coins["dimes"] * 0.1) + (coins["nickels"] * 0.05) + (
                     coins["pennies"] * 0.01)
         print(f'Water:  {Day_15_Sources.resources["water"]} ml,\nMilk:   {Day_15_Sources.resources["milk"]} ml,\n'
-              f'Coffee: {Day_15_Sources.resources["coffee"]} gr,\nMoney:  ${money_sum}')
+              f'Coffee: {Day_15_Sources.resources["coffee"]} gr,\nSold for:  ${money_sum}')
     elif order == "espresso" or order == "latte" or order == "cappuccino":
         resources_check(order, Day_15_Sources.MENU, Day_15_Sources.resources)
         money_change(order, coins)

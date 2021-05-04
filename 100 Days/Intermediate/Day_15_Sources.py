@@ -30,9 +30,3 @@ resources = {
     "coffee": 100,
 }
 
-coins_list = {
-    "quarters": 0.25,
-    "dimes": 0.1,
-    "nickels": 0.05,
-    "pennies": 0.01,
-}
