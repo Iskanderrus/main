@@ -1,9 +1,9 @@
 class RaR:
 
-    def __init__(self, rar_id, name, family_name, partner, location,
+    def __init__(self, name, family_name, partner, location,
                  field_sales, supervisor, net_salary, net_transport_costs,
                  rar_type, status):
-        self.id = rar_id
+        self.id = 0
         self.name = name
         self.family_name = family_name
         self.partner = partner
@@ -74,3 +74,34 @@ class RaR:
 
     def targets_calculation(self, rar_id):
         pass
+
+
+"""
+ID Structure:
+First digit: 
+    1 - Regional RaR
+    2 - KA RaR
+    3 - BDS RaR
+Second place: 
+    Country code, e.g. RU / KZ
+Third digit: 
+    Region code
+Fourth place: 
+    Partner code: 
+    TA, VS, TR, KL, LO, PK
+Fifth place: 
+    own unique 4 digits number starting at 0001 
+    
+Example: 
+1RU61TA0001 - TA Field RaR in Russia in Rostov-on-Don with own 
+number 0001
+
+NB: If RaR type has to be updated - kind promotion of field RaR to 
+KA or BDS RaR, only first part of ID has to be changed - own number
+remains immutable.
+"""
+
+
+def rar_id_generator(rar, list_of_ids):
+    pass
+
