@@ -50,6 +50,12 @@ class RaR:
         self.transport_q2 = 0
         self.transport_q3 = 0
         self.transport_q4 = 0
+        self.probation_start_dd_mm_yyyy = 0
+        self.probation_end_dd_mm_yyyy = 0
+        self.probation_duration_days = \
+            self.probation_end_dd_mm_yyyy - \
+            self.probation_end_dd_mm_yyyy
+        self.inactive_since_dd_mm_yyyy = 0
 
     def bds_type_change(self, commodity):
         self.rar_type = f"BDS {commodity}"
