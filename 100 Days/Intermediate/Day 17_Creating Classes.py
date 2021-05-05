@@ -57,6 +57,9 @@ class RaR:
     def field_type_change(self, location):
         self.rar_type = f"Regional - {location}"
 
+    def kam_type_change(self, ka, location):
+        self.rar_type = f"KA - {ka} in {location}"
+
     def quarterly_salary_calculation(self, rar_id):
         pass
 
@@ -71,12 +74,3 @@ class RaR:
 
     def targets_calculation(self, rar_id):
         pass
-
-
-rar_1 = RaR("Ivan", "Demidov", "Partner1", "Rostov-on-Don", "Petr Zhmykha",
-            "Atanas Zubka", 40000, 5000, "field",
-            "active")
-rar_1.bds_type_change("Welding")
-rar_1.field_type_change("Voronezh Oblast")
-
-print(rar_1.rar_type)
