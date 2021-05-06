@@ -34,15 +34,20 @@ class Question():
             return False
 
 
-score = 0
-counter = 0
-while counter < len(question_data):
-    for question in question_data:
-        new_question = Question(question["text"], question["answer"])
-        users_answer = input(f"{new_question.make_question()} True or False: ")
-        if new_question.check_answer(users_answer):
-            score += 1
-            print(f"Your score is {score} of {len(question_data)}.")
-        else:
-            print("No points to score.")
-    counter += 1
+def game():
+    score = 0
+    counter = 0
+    while counter < len(question_data):
+        for question in question_data:
+            new_question = Question(question["text"], question["answer"])
+            users_answer = input(f"{new_question.make_question()} True or False: ")
+            if new_question.check_answer(users_answer):
+                score += 1
+                print(f"Your score is {score} of {len(question_data)}.")
+            else:
+                print("No points to score.")
+        counter += 1
+
+
+if __name__ == '__main__':
+    game()
