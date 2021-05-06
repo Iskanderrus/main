@@ -45,7 +45,7 @@ def game():
                 score += 1
                 print(f"Your score is {score} of {len(question_data)}.")
             else:
-                print("No points to score.")
+                print(f"No points to score. Your score remains {score} of {len(question_data)}.")
         counter += 1
 
 
