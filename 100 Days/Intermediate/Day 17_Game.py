@@ -35,7 +35,7 @@ class Question:
         return self.text
 
     def check_answer(self, user_answer):
-        if self.answer == user_answer:
+        if self.answer.lower() == user_answer.lower():
             print("This is correct answer!")
             return True
         else:
@@ -48,14 +48,16 @@ def game():
     counter = 0
     while counter < len(question_data):
         for question in question_data:
+            counter += 1
             new_question = Question(question["text"], question["answer"])
-            users_answer = input(f"{new_question.make_question()} True or False: ")
+            users_answer = input(f"Q. {counter}: {new_question.make_question()} "
+                                 f"True or False: ")
             if new_question.check_answer(users_answer):
                 score += 1
                 print(f"Your score is {score} of {len(question_data)}.\n")
             else:
-                print(f"No points to score. Your score remains {score} of {len(question_data)}.\n")
-        counter += 1
+                print(f"No points to score. Your score remains {score} of "
+                      f"{len(question_data)}.\n")
 
 
 if __name__ == '__main__':
