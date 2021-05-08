@@ -22,3 +22,6 @@ class QuizBrain:
             self.score += 0
             print("This is wrong answer.")
         print(f"Your score is {self.score} of {self.question_number}. \n")
+        if self.question_number == len(self.question_list):
+            print("You've completed the quiz.")
+            print(f"Your final score is: {self.score} of {self.question_number}.")
