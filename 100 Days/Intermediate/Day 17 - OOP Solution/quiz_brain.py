@@ -21,4 +21,4 @@ class QuizBrain:
         else:
             self.score += 0
             print("This is wrong answer.")
-        print(f"Your score is {self.score} of {len(self.question_list)}. \n")
+        print(f"Your score is {self.score} of {self.question_number}. \n")
