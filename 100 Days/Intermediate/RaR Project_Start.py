@@ -5,6 +5,7 @@ class RaR:
                  rar_type, status, phone, email):
         self.phone = phone
         self.email = email
+
         self.id = 0
         self.name = name
         self.family_name = family_name
