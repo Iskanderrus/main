@@ -1,13 +1,15 @@
 class RaR:
 
     def __init__(self, name, family_name, partner, location,
-                 field_sales, supervisor, net_salary, net_transport_costs,
-                 rar_type, status):
+                 field_sales_rep, supervisor, net_salary, net_transport_costs,
+                 rar_type, status, phone, email):
+        self.phone = phone
+        self.email = email
         self.id = 0
         self.name = name
         self.family_name = family_name
         self.partner = partner
-        self.field_sales = field_sales
+        self.field_sales = field_sales_rep
         self.supervisor = supervisor
         self.location = location
         self.net_salary = net_salary
@@ -82,6 +84,15 @@ class RaR:
         pass
 
 
+class RaRPartnerContact:
+
+    def __init__(self, name, family_name, partner, phone, email, birth_date):
+        self.name = name
+        self.family_name = family_name
+        self.partner = partner
+        self.phone = phone
+        self.email = email
+        self.birth_date = birth_date
 """
 ID Structure:
 First digit: 
