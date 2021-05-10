@@ -3,7 +3,8 @@ import random
 
 tim = Turtle()
 tim.shape("turtle")
-tim.speed("fastest")
+tim.speed("fast")
+
 
 def random_walk(distance, angle, turtle_color):
     tim.forward(distance)
