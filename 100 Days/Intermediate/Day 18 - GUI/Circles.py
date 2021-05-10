@@ -16,13 +16,16 @@ def random_color():
     return color
 
 
-circle_step = 0.0
+def drawing_spirograph(offset_gap):
+    offset = 0.0
+    while offset <= 360:
+        tim.pencolor(random_color())
+        tim.setheading(offset)
+        tim.circle(100)
+        offset += offset_gap
 
-while circle_step < 360:
-    tim.pencolor(random_color())
-    tim.setheading(circle_step)
-    tim.circle(100)
-    circle_step += 5
+
+drawing_spirograph(24)
 
 screen = Screen()
 screen.exitonclick()
