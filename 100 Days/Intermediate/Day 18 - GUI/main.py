@@ -1,6 +1,7 @@
 from turtle import Turtle, Screen
 from random import choice
 
+
 tim = Turtle()
 tim.shape("turtle")
 
