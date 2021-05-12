@@ -7,16 +7,6 @@ tim.shape("turtle")
 colormode(255)
 tim.speed("fastest")
 imported_colors = colorgram.extract('images/image.jpg', 20)
-
-
-class Rgb:
-
-    def __init__(self, r, g, b):
-        self.r = r
-        self.g = g
-        self.b = b
-
-
 colors_list = []
 
 for color in imported_colors:
