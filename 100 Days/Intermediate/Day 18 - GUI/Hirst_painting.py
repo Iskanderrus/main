@@ -7,7 +7,7 @@ tim.shape("turtle")
 colormode(255)
 tim.speed("fastest")
 imported_colors = colorgram.extract('images/image.jpg', 20)
-tim.hideturtle()
+
 
 class Rgb:
 
