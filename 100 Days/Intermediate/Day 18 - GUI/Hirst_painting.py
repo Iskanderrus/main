@@ -6,20 +6,20 @@ tim = Turtle()
 tim.shape("turtle")
 colormode(255)
 tim.speed("fastest")
-colors = colorgram.extract('images/image.jpg', 20)
+imported_colors = colorgram.extract('images/image.jpg', 20)
 
 
 class Rgb:
 
     def __init__(self, r, g, b):
-        self.r = 0
-        self.g = 0
-        self.b = 0
+        self.r = r
+        self.g = g
+        self.b = b
 
 
 colors_list = []
 
-for color in colors:
+for color in imported_colors:
     rgb = color.rgb
     color_red = rgb.r
     color_green = rgb.g
