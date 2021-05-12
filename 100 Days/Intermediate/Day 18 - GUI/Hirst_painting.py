@@ -8,6 +8,7 @@ colormode(255)
 tim.speed("fastest")
 imported_colors = colorgram.extract('images/image.jpg', 20)
 colors_list = []
+tim.hideturtle()
 
 for color in imported_colors:
     rgb = color.rgb
@@ -27,18 +28,17 @@ def hirst_painter(picture_size, dot_size, offset, colors):
     :param colors: Colors to be used in painting
     :return: None
     """
-    y = -450
+    y = -430
     tim.penup()
-    tim.setposition(-480, y)
+    tim.setposition(-390, y)
     for _ in range(picture_size):
         for _ in range(picture_size):
             tim.dot(dot_size, random.choice(colors))
             tim.forward(dot_size + offset)
         y += (dot_size + offset)
-        tim.setposition(-480, y)
-    tim.hideturtle()
+        tim.setposition(-390, y)
 
 
-hirst_painter(picture_size=10, dot_size=40, offset=17, colors=colors_list)
+hirst_painter(picture_size=10, dot_size=40, offset=45, colors=colors_list)
 screen = Screen()
 screen.exitonclick()
