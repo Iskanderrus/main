@@ -22,7 +22,6 @@ def turn_right():
 
 
 def clear():
-    tim.clear()
     tim.reset()
 
 
