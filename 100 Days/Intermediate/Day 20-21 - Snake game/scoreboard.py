@@ -5,7 +5,7 @@ class Scoreboard(Turtle):
 
     def __init__(self):
         super().__init__()
-        self.counter = 0
+        self.counter = -1
         self.penup()
         self.color('white')
         self.hideturtle()
@@ -13,6 +13,8 @@ class Scoreboard(Turtle):
         self.text = "Счёт: "
 
     def board_refresh(self):
+        self.clear()
+        self.counter += 1
         self.write(self.text + str(self.counter), align="center", font=("Arial", 10, "normal"))
 
 

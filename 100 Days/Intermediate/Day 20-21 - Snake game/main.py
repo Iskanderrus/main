@@ -30,8 +30,6 @@ while game_is_on:
 
     if snake.head.distance(food) < 15:
         food.refresh()
-        scoreboard.clear()
-        scoreboard.counter += 1
         scoreboard.board_refresh()
 
 
