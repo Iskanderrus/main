@@ -32,6 +32,4 @@ while game_is_on:
         food.refresh()
         scoreboard.board_refresh()
 
-
-
 screen.exitonclick()
