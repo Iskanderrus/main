@@ -31,7 +31,7 @@ while game_is_on:
         food.refresh()
         scoreboard.clear()
         scoreboard.counter += 1
-        scoreboard = Scoreboard()
+        scoreboard.board_refresh()
 
 
 

@@ -10,7 +10,9 @@ class Scoreboard(Turtle):
         self.color('white')
         self.hideturtle()
         self.goto(0, 280)
-        self.text = "Твой червячок съел: "
-        self.write(self.text + str(self.counter) + " яблок.", align="center", font=("Arial", 10, "normal"))
-        self.goto(0, 260)
+        self.text = "Счёт: "
+
+    def board_refresh(self):
+        self.write(self.text + str(self.counter), align="center", font=("Arial", 10, "normal"))
+
 
