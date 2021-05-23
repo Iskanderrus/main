@@ -13,6 +13,10 @@ class Food(Turtle):
         self.refresh()
 
     def refresh(self):
+        """
+        Function to generate new food piece in the random location.
+        :return: None
+        """
         rand_x = random.randint(-280, 280)
         rand_y = random.randint(-280, 280)
         self.goto(rand_x, rand_y)

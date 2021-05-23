@@ -16,6 +16,10 @@ class Scoreboard(Turtle):
         self.text = "Счёт: "
 
     def board_refresh(self):
+        """
+        Function to clean the scoreboard of the game and assign the new score.
+        :return: None
+        """
         self.clear()
         self.counter += 1
         self.write(self.text + str(self.counter), align=ALIGNMENT, font=FONT)
