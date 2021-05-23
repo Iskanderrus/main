@@ -17,6 +17,6 @@ class Food(Turtle):
         Function to generate new food piece in the random location.
         :return: None
         """
-        rand_x = random.randint(-280, 280)
-        rand_y = random.randint(-280, 280)
+        rand_x = random.randint(-260, 260)
+        rand_y = random.randint(-260, 260)
         self.goto(rand_x, rand_y)

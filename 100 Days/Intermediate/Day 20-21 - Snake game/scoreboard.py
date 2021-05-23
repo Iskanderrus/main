@@ -15,6 +15,11 @@ class Scoreboard(Turtle):
         self.goto(0, 260)
         self.text = "Счёт: "
 
+    def game_over(self):
+        self.goto(0, 0)
+        self.text = "ИГРА ОКОНЧЕНА СО СЧЁТОМ: "
+        self.write(self.text + str(self.counter), align=ALIGNMENT, font=FONT)
+
     def board_refresh(self):
         """
         Function to clean the scoreboard of the game and assign the new score.
