@@ -10,19 +10,22 @@ screen.title("Пинг-Понг")
 screen.tracer(0)
 
 # Introducing main parts of the game:
-paddle = Paddle()
+left_paddle = Paddle((-380, 0))
+right_paddle = Paddle((380, 0))
 
 # Introducing controls:
 screen.listen()
-screen.onkey(paddle.up, "Up")
-screen.onkey(paddle.down, "Down")
+screen.onkey(left_paddle.up, "a")
+screen.onkey(left_paddle.down, "z")
+screen.onkeypress(right_paddle.up, "Up")
+screen.onkeypress(right_paddle.down, "Down")
 
 # Main game cycle:
 game_is_on = True
 
 while game_is_on:
     screen.update()
-    time.sleep(0.1)
+    time.sleep(0.00001)
 #
 #     # Detect collision with the food:
 #     if snake.head.distance(food) < 15:
