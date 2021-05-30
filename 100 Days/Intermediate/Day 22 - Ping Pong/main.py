@@ -44,13 +44,13 @@ while game_is_on:
     # Detect right paddle missing the ball:
     if ball.xcor() > 390:
         ball.reset_position()
-        scoreboard.l_score += 1
+        scoreboard.l_point()
         scoreboard.refresh()
 
     # Detect left paddle missing the ball:
     if ball.xcor() < -390:
         ball.reset_position()
-        scoreboard.r_score += 1
+        scoreboard.r_point()
         scoreboard.refresh()
 
 
