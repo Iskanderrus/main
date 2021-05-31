@@ -1,41 +1,46 @@
 import random
+import time
 import colorgram
-from turtle import Turtle, Screen, colormode
+from turtle import Screen
 from cars import Car
 from crosser import Crosser
+#from scoreboard import Scoreboard
 
-colormode(255)
 screen = Screen()
-screen.setup(width=800, height=600)
-
+screen.setup(width=600, height=600)
+screen.tracer(0)
 
 # Import colors for the cars
 
-imported_colors = colorgram.extract('images/image.jpg', 20)
-colors_list = []
+#imported_colors = colorgram.extract('images/image.jpg', 20)
 
-for color in imported_colors:
-    rgb = color.rgb
-    color_red = rgb.r
-    color_green = rgb.g
-    color_blue = rgb.b
-    color = (color_red, color_green, color_blue)
-    colors_list.append(color)
-print(colors_list)
+
+# for color in imported_colors:
+#     rgb = color.rgb
+#     color_red = rgb.r
+#     color_green = rgb.g
+#     color_blue = rgb.b
+#     color = (color_red, color_green, color_blue)
+#     colors_list.append(color)
+# print(colors_list)
+
 # Add y coordinates for the running cars
 
-y_coordinate = [-220, -180, -140, -100, -60, -20, 20, 60, 100, 140]
-
-all_cars = []
-for car in y_coordinate:
-    new_car = Car(y_position=car, color=random.choice(colors_list))
-    new_car.penup()
-    all_cars.append(new_car)
-
+cars = Car()
 crosser = Crosser()
-counter = 0
-while counter < 100:
-    for car in all_cars:
-        car.move()
+# Introducing controls:
+screen.listen()
+screen.onkeypress(crosser.up, "Up")
+
+
+cars_list = []
+game_is_on = True
+while game_is_on:
+    time.sleep(0.5)
+    screen.update()
+
+    cars_list.append(cars.create_manager())
+    for car in cars_list:
+        cars.move()
 
 screen.exitonclick()
