@@ -12,7 +12,7 @@ class Crosser(Turtle):
         self.penup()
         self.setheading(90)
         self.color("black")
-        self.setposition(x=0, y=-380)
+        self.setposition(x=0, y=-280)
 
     def up(self):
         self.setheading(UP)
