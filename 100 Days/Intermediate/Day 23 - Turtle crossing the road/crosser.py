@@ -2,7 +2,7 @@ from turtle import Turtle
 
 MOVE_DISTANCE = 20
 UP = 90
-INITIAL_POSIITION = (0, -280)
+INITIAL_POSITION = (0, -280)
 FINISH_LINE_Y = 280
 
 
@@ -14,11 +14,11 @@ class Crosser(Turtle):
         self.penup()
         self.setheading(90)
         self.color("black")
-        self.setposition(INITIAL_POSIITION)
+        self.go_to_start()
+
+    def go_to_start(self):
+        self.goto(INITIAL_POSITION)
 
     def up(self):
-        if self.ycor() < FINISH_LINE_Y:
-            self.setheading(UP)
-            self.forward(MOVE_DISTANCE)
-        else:
-            self.setposition(INITIAL_POSIITION)
+        self.setheading(UP)
+        self.forward(MOVE_DISTANCE)
