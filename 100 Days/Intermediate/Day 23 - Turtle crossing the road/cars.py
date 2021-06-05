@@ -9,7 +9,7 @@ colors_list = [(124, 180, 210), (198, 174, 16),
                (12, 183, 150), (13, 31, 75)]
 STARTING_MOVE_DISTANCE = 5
 MOVE_INCREMENT = 10
-
+SHAPES = ["square", "classic", "triangle"]
 
 class CarManager:
 
@@ -19,7 +19,7 @@ class CarManager:
     def create_cars(self):
         random_chance = random.randint(1, 6)
         if random_chance == 1:
-            new_car = Turtle("square")
+            new_car = Turtle(random.choice(SHAPES))
             new_car.shapesize(stretch_len=2, stretch_wid=1)
             new_car.penup()
             new_car.color(random.choice(colors_list))
