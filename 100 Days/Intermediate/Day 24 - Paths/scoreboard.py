@@ -18,7 +18,7 @@ class Scoreboard(Turtle):
     def reset(self):
         if self.counter > self.high_score:
             self.high_score = self.counter
-        self.counter = 0
+        self.counter = -1
         self.board_refresh()
 
     def board_refresh(self):
