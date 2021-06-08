@@ -9,7 +9,7 @@ with open(path + file) as text:
     contents = text.read()
     print(contents)
 
-# Relative path
+# Relative path to current directory
 with open("../../../../../Рабочий стол/my_file.txt") as text:
     contents = text.read()
     print(contents)
