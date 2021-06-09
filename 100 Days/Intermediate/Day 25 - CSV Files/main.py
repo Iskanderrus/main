@@ -18,4 +18,23 @@
 import pandas as pd
 
 df = pd.read_csv('weather_data.csv')
-print(df["temperature"])
+# print(type(df))
+print(type(df["temperature"]))
+
+data_dict = df.to_dict()
+print(data_dict)
+
+temp_list = df["temperature"].to_list()
+print(temp_list)
+avg_temp = df["temperature"].mean()
+max_temp = df["temperature"].max()
+print(max_temp)
+print(avg_temp)
+
+# Get data in columns
+print(df["condition"])
+print(df.condition)
+
+# Get data from row
+print(df[df["temperature"] == max_temp])
+print(df[df.day == "Monday"])
