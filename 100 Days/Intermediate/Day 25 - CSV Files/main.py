@@ -37,4 +37,5 @@ print(df.condition)
 
 # Get data from row
 print(df[df["temperature"] == max_temp])
+print(df[df.temperature == df.temperature.max()])
 print(df[df.day == "Monday"])
