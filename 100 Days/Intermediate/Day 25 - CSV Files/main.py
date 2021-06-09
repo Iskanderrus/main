@@ -39,3 +39,22 @@ print(df.condition)
 print(df[df["temperature"] == max_temp])
 print(df[df.temperature == df.temperature.max()])
 print(df[df.day == "Monday"])
+
+monday = df[df.day == "Monday"]
+print(monday.condition)
+f_temp = monday.temperature * 9 / 5 + 32
+print(f_temp)
+
+# Adding the column
+df["Fahrenheit_temp"] = df.temperature * 9 / 5 + 32
+print(df)
+
+# Creating DF from scratch
+
+my_data = {
+    "students": ["Amy", "James", "Angela"],
+    "scores": [76, 56, 65]
+}
+new_df = pd.DataFrame(my_data)
+new_df.to_csv("new_data.csv")
+print(new_df)
