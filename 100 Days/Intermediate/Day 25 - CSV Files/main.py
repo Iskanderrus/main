@@ -62,5 +62,7 @@
 import pandas as pd
 df = pd.read_csv("2018_Central_Park_Squirrel_Census_-_Squirrel_Data.csv")
 colors_count = df["Primary Fur Color"].value_counts()
-colors_count.to_csv("NYC_Squirrels colors.csv")
-print(colors_count)
+df1 = pd.DataFrame(colors_count)
+df1.rename(columns={"0":"Fur Color", "Primary Fur Color": "Count"}, inplace=True)
+print(df1)
+df1.to_csv("NYC_Squirrels colors.csv")
