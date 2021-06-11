@@ -10,7 +10,7 @@ class Message(Turtle):
         self.penup()
         self.goto(0, 0)
 
-    def add_warning(self, text):
+    def write_warning(self, text):
         self.write(text, align="center", font=("Courier", 12, "bold"))
         time.sleep(1.5)
         self.clear()

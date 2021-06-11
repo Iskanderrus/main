@@ -27,21 +27,22 @@ start_time = time.time()
 
 # Main game logic
 while len(used_names) < 50:
-    answer_state = screen.textinput(title=f"{len(used_names)}/ 50 Guess the state", prompt="What's another state name?")
-    if answer_state.title() not in used_names:
-        if answer_state.title() in states:
-            choice = states_full_list[states_full_list.state == answer_state.title()]
-            state.add_state(answer_state, int(choice["x"]), int(choice["y"]))
-            used_names.append(answer_state.title())
+    answer_state = screen.textinput(title=f"{len(used_names)}/ 50 Guess the state",
+                                    prompt="What's another state name?").title()
+    if answer_state not in used_names:
+        if answer_state in states:
+            choice = states_full_list[states_full_list.state == answer_state]
+            state.map_state(answer_state, int(choice["x"]), int(choice["y"]))
+            used_names.append(answer_state)
         else:
             text = "There is no state with this name in the U.S.\nTry again."
-            warning.add_warning(text)
+            warning.write_warning(text)
     else:
-        text = f"{answer_state.title()} is on the map already. Try again."
-        warning.add_warning(text)
+        text = f"{answer_state} is on the map already. Try again."
+        warning.write_warning(text)
 
 text = f"Congratulations! All States are correctly mapped!\n You did it witin {(time.time() - start_time)}"
-warning.add_warning(text)
+warning.write_warning(text)
 
 turtle.mainloop()
 screen.exitonclick()

@@ -8,6 +8,6 @@ class StateUS(Turtle):
         self.hideturtle()
         self.penup()
 
-    def add_state(self, name, x_coord, y_coord):
+    def map_state(self, name, x_coord, y_coord):
         self.goto(x_coord, y_coord)
-        self.write(name.title(), align="center", font=("Courier", 7, "bold"))
+        self.write(name, align="center", font=("Courier", 7, "bold"))
