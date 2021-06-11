@@ -46,7 +46,7 @@ while len(used_names) < 50:
         text = f"{answer_state} is on the map already. Try again."
         warning.write_warning(text)
 
-text = f"Congratulations! All States are correctly mapped!\n You did it witin {(time.time() - start_time)}"
+text = f"Congratulations! All States you know are correctly mapped!\n You did it witin {(time.time() - start_time)}"
 warning.write_warning(text)
 
 screen.exitonclick()
