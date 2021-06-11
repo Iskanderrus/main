@@ -29,11 +29,16 @@ start_time = time.time()
 while len(used_names) < 50:
     answer_state = screen.textinput(title=f"{len(used_names)}/ 50 Guess the state",
                                     prompt="What's another state name?").title()
+    if answer_state == "Exit":
+        states_to_learn = pd.DataFrame(states)
+        states_to_learn.to_csv("states_to_learn.csv")
+        break
     if answer_state not in used_names:
         if answer_state in states:
             choice = states_full_list[states_full_list.state == answer_state]
             state.map_state(answer_state, int(choice["x"]), int(choice["y"]))
             used_names.append(answer_state)
+            states.remove(answer_state)
         else:
             text = "There is no state with this name in the U.S.\nTry again."
             warning.write_warning(text)
@@ -44,5 +49,4 @@ while len(used_names) < 50:
 text = f"Congratulations! All States are correctly mapped!\n You did it witin {(time.time() - start_time)}"
 warning.write_warning(text)
 
-turtle.mainloop()
 screen.exitonclick()
