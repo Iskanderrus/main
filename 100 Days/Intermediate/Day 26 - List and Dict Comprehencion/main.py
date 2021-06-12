@@ -42,3 +42,21 @@ print(squares_numbers)
 numbers = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
 even_numbers = [number for number in numbers if (number % 2 == 0)]
 print(even_numbers)
+
+# 3
+
+
+def list_creator(file):
+    with open(file, "r") as f:
+        contents = f.readlines()
+        new_list1 = []
+        for item in contents:
+            new_list1.append(item.strip())
+        return new_list1
+
+
+list1 = list_creator("file1.txt")
+list2 = list_creator("file2.txt")
+
+joint_list = [int(item) for item in list2 if item in list1]
+print(joint_list)
