@@ -25,3 +25,9 @@ Basic rule:
             new_list = [new_item for item in old_list if condition]
 """
 
+# Sample:
+names = ["Alex", "Dave", "Beth", "Carolina", "Eleanor", "Freddie"]
+short_names = [name for name in names if len(name) <= 4]
+long_names = [name for name in names if len(name) > 4]
+print(short_names)
+print(long_names)
