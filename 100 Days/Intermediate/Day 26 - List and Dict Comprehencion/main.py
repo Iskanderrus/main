@@ -58,5 +58,5 @@ def list_creator(file):
 list1 = list_creator("file1.txt")
 list2 = list_creator("file2.txt")
 
-joint_list = [int(item) for item in list2 if item in list1]
+joint_list = list(set(int(item) for item in list2 if item in list1))
 print(joint_list)
