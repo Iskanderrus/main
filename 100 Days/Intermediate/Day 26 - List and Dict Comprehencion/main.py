@@ -31,3 +31,11 @@ short_names = [name for name in names if len(name) <= 4]
 long_names = [name.upper() for name in names if len(name) > 4]
 print(short_names)
 print(long_names)
+
+# Exercises
+
+numbers = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
+squares_numbers = [number * number for number in numbers]
+print(squares_numbers)
+
+
