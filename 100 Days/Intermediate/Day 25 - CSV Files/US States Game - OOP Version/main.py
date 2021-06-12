@@ -32,7 +32,7 @@ while len(used_names) < 50:
     if answer_state == "Exit":
         states_to_learn = pd.DataFrame(states)
         states_to_learn.to_csv("states_to_learn.csv")
-        text = f"All States you know are correctly mapped!\nCheck the rest in 'states_to_learn.csv' file"
+        text = f"All States you know are mapped.\nCheck the rest in 'states_to_learn.csv' file"
         warning.write_warning(text)
         break
     if answer_state not in used_names:
