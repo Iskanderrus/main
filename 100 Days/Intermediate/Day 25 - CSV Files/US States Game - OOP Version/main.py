@@ -33,7 +33,7 @@ while len(used_names) < 50:
         states_to_learn = pd.DataFrame(states)
         states_to_learn.to_csv("states_to_learn.csv")
         text = f"All States you know are mapped.\nCheck the rest in 'states_to_learn.csv' file"
-        warning.write_warning(text)
+        warning.write_warning(text, 3)
         break
     if answer_state not in used_names:
         if answer_state in states:
@@ -44,12 +44,12 @@ while len(used_names) < 50:
             if len(used_names) == 50:
                 text = f"Congratulations! All States are correctly mapped!\n" \
                        f"You did it within {(time.time() - start_time)} "
-                warning.write_warning(text)
+                warning.write_warning(text, 3)
         else:
             text = "There is no state with this name in the U.S.\nTry again."
-            warning.write_warning(text)
+            warning.write_warning(text, 2)
     else:
         text = f"{answer_state} is on the map already. Try again."
-        warning.write_warning(text)
+        warning.write_warning(text, 1.5)
 
 screen.exitonclick()

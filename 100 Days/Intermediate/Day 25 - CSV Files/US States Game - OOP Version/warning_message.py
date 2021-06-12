@@ -8,9 +8,9 @@ class Message(Turtle):
         super().__init__()
         self.hideturtle()
         self.penup()
-        self.goto(0, 0)
+        self.goto(0, -300)
 
-    def write_warning(self, text):
+    def write_warning(self, text, sleep):
         self.write(text, align="center", font=("Courier", 12, "bold"))
-        time.sleep(1.5)
+        time.sleep(sleep)
         self.clear()
