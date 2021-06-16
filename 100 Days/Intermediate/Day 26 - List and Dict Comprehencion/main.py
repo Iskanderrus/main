@@ -72,3 +72,7 @@ Basic rules:
 """
 scores_dict = {name: random.randint(0, 101) for name in names}
 print(scores_dict)
+
+passed_students = {name: score for (name, score) in scores_dict.items() if score >= 60}
+print(passed_students)
+
