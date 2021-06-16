@@ -1,3 +1,5 @@
+import random
+
 """
    ---List Comprehension---
 Basic rule:
@@ -68,3 +70,5 @@ Basic rules:
             new_dict = {new_key:new_value for (key, value) in old_dict}
             new_dict = {new_key:new_value for (key, value) in old_dict if condition}
 """
+scores_dict = {name: random.randint(0, 101) for name in names}
+print(scores_dict)
