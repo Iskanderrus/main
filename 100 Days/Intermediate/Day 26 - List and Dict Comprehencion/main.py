@@ -60,3 +60,11 @@ list2 = list_creator("file2.txt")
 
 joint_list = list(set(int(item) for item in list2 if item in list1))
 print(joint_list)
+
+"""
+   ---Dictionary Comprehension---
+Basic rules:
+            new_dict = {new_key:new_value for item in list}
+            new_dict = {new_key:new_value for (key, value) in old_dict}
+            new_dict = {new_key:new_value for (key, value) in old_dict if condition}
+"""
