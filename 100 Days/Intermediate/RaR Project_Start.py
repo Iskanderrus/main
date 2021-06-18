@@ -1,22 +1,19 @@
 class RaR:
 
-    def __init__(self, name, family_name, partner, location,
-                 field_sales_rep, supervisor, net_salary, net_transport_costs,
-                 rar_type, status, phone, email):
-        self.phone = phone
-        self.email = email
-
+    def __init__(self, **kwargs):
+        self.phone = kwargs.get("phone")
+        self.email = kwargs.get("email")
         self.id = 0
-        self.name = name
-        self.family_name = family_name
-        self.partner = partner
-        self.field_sales = field_sales_rep
-        self.supervisor = supervisor
-        self.location = location
-        self.net_salary = net_salary
-        self.net_transport_costs = net_transport_costs
-        self.rar_type = rar_type
-        self.status = status
+        self.name = kwargs.get("name")
+        self.family_name = kwargs.get("family_name")
+        self.partner = kwargs.get("partner")
+        self.field_sales = kwargs.get("field_sales_rep")
+        self.supervisor = kwargs.get("supervisor")
+        self.location = kwargs.get("location")
+        self.net_salary = kwargs.get("net_salary")
+        self.net_transport_costs = kwargs.get("net_transport_costs")
+        self.rar_type = kwargs.get("rar_type")
+        self.status = kwargs.get("status")
         self.target_m1q1 = 0
         self.target_m1q2 = 0
         self.target_m1q3 = 0
