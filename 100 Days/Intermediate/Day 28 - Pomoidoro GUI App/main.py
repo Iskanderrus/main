@@ -1,5 +1,6 @@
 from tkinter import *
 import math
+
 # ---------------------------- CONSTANTS ------------------------------- #
 PINK = "#e2979c"
 RED = "#e7305b"
@@ -17,7 +18,8 @@ LONG_BREAK_MIN = 20
 # ---------------------------- TIMER MECHANISM ------------------------------- #
 
 def start_timer():
-    count_down(25 * 60)
+    count_down(2 * 60)
+
 
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- #
 
@@ -25,6 +27,10 @@ def start_timer():
 def count_down(count):
     count_min = math.floor(count / 60)
     count_sec = count % 60
+    if count_sec in range(0, 10):
+        count_sec = "0" + str(count_sec)
+    if count_min < 10:
+        count_min = f"0{count_min}"
 
     canvas.itemconfig(timer_text, text=f"{count_min}:{count_sec}")
     if count > 0:
@@ -44,8 +50,6 @@ background_image = PhotoImage(file="tomato.png")
 canvas.create_image(103, 112, image=background_image)
 timer_text = canvas.create_text(110, 143, text="00:00", fill="white", font=(FONT_NAME, 25, "bold"))
 canvas.grid(column=1, row=1)
-
-
 
 # Add labels
 timer_label = Label(text="Timer", font=("Chilanka", 30, "bold"), bg=YELLOW, fg=GREEN)
