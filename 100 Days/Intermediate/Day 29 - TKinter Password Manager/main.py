@@ -1,5 +1,5 @@
 from tkinter import *
-
+from tkinter import messagebox
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
@@ -8,10 +8,19 @@ from tkinter import *
 
 def log_saver():
     log = [website_entry.get(), username_entry.get(), password_entry.get()]
-    with open("password_manager_log.txt", "a") as file:
-        file.write(f"{' | '.join(log)}\n")
-    website_entry.delete(4, END)
-    password_entry.delete(0, END)
+
+    if len(log[0]) <= 4 or len(log[1]) == 0 or len(log[2]) == 0:
+        messagebox.showerror(title="Entry Error", message="Ups... Please don't leave any blank fields!")
+    else:
+        is_ok = messagebox.askokcancel(title=log[0], message=f"These are details entered:"
+                                                         f"\nEmail: {log[1]}"
+                                                         f"\nPassword: {log[2]}"
+                                                         f"\nIs it ok to save?")
+        if is_ok:
+            with open("password_manager_log.txt", "a") as file:
+                file.write(f"{' | '.join(log)}\n")
+                website_entry.delete(4, END)
+                password_entry.delete(0, END)
 
 
 # ---------------------------- UI SETUP ------------------------------- #
