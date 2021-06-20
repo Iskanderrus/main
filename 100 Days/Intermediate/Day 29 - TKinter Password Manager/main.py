@@ -13,7 +13,7 @@ import math
 # Create App window
 window = Tk()
 window.title("Password Manager")
-window.config(padx=20, pady=20)
+window.config(padx=50, pady=50)
 
 # Create Canvas
 canvas = Canvas(width=200, height=200, highlightthickness=0)
@@ -33,7 +33,7 @@ password_label.grid(column=0, row=3)
 
 
 # Add buttons
-generate_button = Button(text="Generate Password", highlightthickness=0, font=("Arial", 10))
+generate_button = Button(text="Generate Password", height=1, highlightthickness=0, font=("Arial", 10))
 generate_button.grid(column=2, row=3)
 
 add_button = Button(text="Add", highlightthickness=0, width=44, font=("Arial", 10))
