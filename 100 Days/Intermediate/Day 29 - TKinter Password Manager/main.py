@@ -3,11 +3,12 @@ from tkinter import messagebox
 from random import choice, shuffle, randint
 import pyperclip
 
+
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 # Password Generator Project
 
 def password_creator():
-    password_entry.delete(0, END)
+    password_entry.delete(0, END)  # --> cleanup the password entry if something was there occasionally
     letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
                'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
                'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
@@ -21,9 +22,8 @@ def password_creator():
     shuffle(password_list)
 
     password = "".join(password_list)
-    password_entry.insert(0, password)
-    pyperclip.copy(password)
-
+    password_entry.insert(0, password)  # --> display the new password in GUI
+    pyperclip.copy(password)  # --> copy to clipboard
 
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
