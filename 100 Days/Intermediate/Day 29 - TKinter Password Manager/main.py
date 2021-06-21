@@ -1,7 +1,31 @@
 from tkinter import *
 from tkinter import messagebox
+import random
+
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
+# Password Generator Project
+
+def password_creator():
+    password_entry.delete(0, END)
+    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
+               'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
+               'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+    numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+    symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
+
+    nr_letters = random.randint(8, 10)
+    nr_symbols = random.randint(2, 4)
+    nr_numbers = random.randint(2, 4)
+
+    password_list = [random.choice(letters) for _ in range(nr_letters)] + \
+                    [random.choice(numbers) for _ in range(nr_numbers)] + \
+                    [random.choice(symbols) for _ in range(nr_symbols)]
+
+    random.shuffle(password_list)
+
+    password = "".join(password_list)
+    password_entry.insert(0, password)
 
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
@@ -13,9 +37,9 @@ def log_saver():
         messagebox.showerror(title="Entry Error", message="Ups... Please don't leave any blank fields!")
     else:
         is_ok = messagebox.askokcancel(title=log[0], message=f"These are details entered:"
-                                                         f"\nEmail: {log[1]}"
-                                                         f"\nPassword: {log[2]}"
-                                                         f"\nIs it ok to save?")
+                                                             f"\nEmail: {log[1]}"
+                                                             f"\nPassword: {log[2]}"
+                                                             f"\nIs it ok to save?")
         if is_ok:
             with open("password_manager_log.txt", "a") as file:
                 file.write(f"{' | '.join(log)}\n")
@@ -47,7 +71,8 @@ password_label = Label(text="Password:", font=("Arial", 10))
 password_label.grid(column=0, row=3)
 
 # Add buttons
-generate_button = Button(text="Generate Password", height=1, highlightthickness=0, font=("Arial", 10))
+generate_button = Button(text="Generate Password", height=1, highlightthickness=0, font=("Arial", 10),
+                         command=password_creator)
 generate_button.grid(column=2, row=3)
 
 add_button = Button(text="Add", highlightthickness=0, width=44, font=("Arial", 10), command=log_saver)
