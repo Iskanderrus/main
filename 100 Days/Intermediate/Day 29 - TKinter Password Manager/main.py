@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import messagebox
 from random import choice, shuffle, randint
 import pyperclip
+import json
 
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
@@ -29,20 +30,31 @@ def password_creator():
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 
 def log_saver():
-    log = [website_entry.get(), username_entry.get(), password_entry.get()]
+    website = website_entry.get()
+    username = username_entry.get()
+    password = password_entry.get()
+    new_data = {
+        website: {
+            "username": username,
+            "password": password,
+        }
+    }
 
-    if len(log[0]) <= 4 or len(log[1]) == 0 or len(log[2]) == 0:
+    if len(website) <= 4 or len(username) == 0 or len(password) == 0:
         messagebox.showerror(title="Entry Error", message="Ups... Please don't leave any blank fields!")
     else:
-        is_ok = messagebox.askokcancel(title=log[0], message=f"These are details entered:"
-                                                             f"\nEmail: {log[1]}"
-                                                             f"\nPassword: {log[2]}"
-                                                             f"\nIs it ok to save?")
-        if is_ok:
-            with open("password_manager_log.txt", "a") as file:
-                file.write(f"{' | '.join(log)}\n")
-                website_entry.delete(4, END)
-                password_entry.delete(0, END)
+        with open("password_manager_log.json", "r") as file:
+            # reading from the json file
+            data = json.load(file)
+            # updating data in the old version of the json file
+            data.update(new_data)
+
+        with open("password_manager_log.json", "w") as file:
+            # updating the json file with the updated data
+            json.dump(data, file, indent=1)
+
+            website_entry.delete(4, END)
+            password_entry.delete(0, END)
 
 
 # ---------------------------- UI SETUP ------------------------------- #
@@ -76,9 +88,15 @@ generate_button.grid(column=2, row=3)
 add_button = Button(text="Add", highlightthickness=0, width=44, font=("Arial", 10), command=log_saver)
 add_button.grid(column=1, row=4, columnspan=2)
 
+add_button = Button(text="Find", highlightthickness=0, width=16, font=("Arial", 10))
+add_button.grid(column=2, row=1)
+
+add_button = Button(text="EXIT", highlightthickness=0, width=16, font=("Arial", 10))
+add_button.grid(column=2, row=5)
+
 # Add entries
-website_entry = Entry(width=38)
-website_entry.grid(column=1, row=1, columnspan=2)
+website_entry = Entry(width=22)
+website_entry.grid(column=1, row=1)
 website_entry.focus()  # --> cursor will be placed into this field after launching the app
 website_entry.insert(0, "www.")
 
