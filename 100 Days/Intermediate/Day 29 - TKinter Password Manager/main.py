@@ -4,7 +4,10 @@ from random import choice, shuffle, randint
 import pyperclip
 import json
 
+"""
+DAY 30 -->> VIDEO FILE 274 
 
+"""
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 # Password Generator Project
 
@@ -91,7 +94,7 @@ add_button.grid(column=1, row=4, columnspan=2)
 add_button = Button(text="Find", highlightthickness=0, width=16, font=("Arial", 10))
 add_button.grid(column=2, row=1)
 
-add_button = Button(text="EXIT", highlightthickness=0, width=16, font=("Arial", 10))
+add_button = Button(text="EXIT", highlightthickness=0, width=16, font=("Arial", 10), command=window.destroy)
 add_button.grid(column=2, row=5)
 
 # Add entries
