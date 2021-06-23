@@ -8,6 +8,8 @@ import json
 DAY 30 -->> VIDEO FILE 274 
 
 """
+
+
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 # Password Generator Project
 
@@ -46,18 +48,23 @@ def log_saver():
     if len(website) <= 4 or len(username) == 0 or len(password) == 0:
         messagebox.showerror(title="Entry Error", message="Ups... Please don't leave any blank fields!")
     else:
-        with open("password_manager_log.json", "r") as file:
-            # reading from the json file
-            data = json.load(file)
-            # updating data in the old version of the json file
-            data.update(new_data)
+        try:
+            with open("password_manager_log.json", "r") as file:
+                # reading from the json file
+                data = json.load(file)
+                # updating data in the old version of the json file
+                data.update(new_data)
 
-        with open("password_manager_log.json", "w") as file:
-            # updating the json file with the updated data
-            json.dump(data, file, indent=1)
+            with open("password_manager_log.json", "w") as file:
+                # updating the json file with the updated data
+                json.dump(data, file, indent=1)
 
-            website_entry.delete(4, END)
-            password_entry.delete(0, END)
+        except FileNotFoundError:
+            with open("password_manager_log.json", "w") as file:
+                # updating the json file with the updated data
+                json.dump(new_data, file, indent=1)
+        website_entry.delete(4, END)
+        password_entry.delete(0, END)
 
 
 # ---------------------------- UI SETUP ------------------------------- #
