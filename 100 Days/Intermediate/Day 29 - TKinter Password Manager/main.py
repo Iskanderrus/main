@@ -4,10 +4,25 @@ from random import choice, shuffle, randint
 import pyperclip
 import json
 
-"""
-DAY 30 -->> VIDEO FILE 274 
 
-"""
+# ---------------------------- SEARCH FUNCTION ------------------------------- #
+
+
+def find_password():
+    website = website_entry.get()
+    try:
+        with open("password_manager_log.json", "r") as file:
+            data = json.load(file)
+
+    except FileNotFoundError:
+        messagebox.showerror(title="Ups...", message=f"No data file exist.")
+
+    else:
+        if website in data:
+            messagebox.showinfo(title=f"{website} is found!", message=f"{data[website]['username']}"
+                                                                      f"\n{data[website]['password']}")
+        else:
+            messagebox.showerror(title="Ups...", message=f"No details for {website} exist.")
 
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
@@ -57,12 +72,12 @@ def log_saver():
 
             with open("password_manager_log.json", "w") as file:
                 # updating the json file with the updated data
-                json.dump(data, file, indent=1)
+                json.dump(data, file, indent=4)
 
         except FileNotFoundError:
             with open("password_manager_log.json", "w") as file:
                 # updating the json file with the updated data
-                json.dump(new_data, file, indent=1)
+                json.dump(new_data, file, indent=4)
         website_entry.delete(4, END)
         password_entry.delete(0, END)
 
@@ -98,7 +113,7 @@ generate_button.grid(column=2, row=3)
 add_button = Button(text="Add", highlightthickness=0, width=44, font=("Arial", 10), command=log_saver)
 add_button.grid(column=1, row=4, columnspan=2)
 
-add_button = Button(text="Find", highlightthickness=0, width=16, font=("Arial", 10))
+add_button = Button(text="Search", highlightthickness=0, width=16, font=("Arial", 10), command=find_password)
 add_button.grid(column=2, row=1)
 
 add_button = Button(text="EXIT", highlightthickness=0, width=16, font=("Arial", 10), command=window.destroy)
