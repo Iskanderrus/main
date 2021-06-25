@@ -20,7 +20,7 @@ def find_password():
     else:
         if website in data:
             messagebox.showinfo(title=f"{website} is found!", message=f"Password for user:\n{data[website]['username']}"
-                                                                      f"\ncopied to clipboard.")
+                                                                      f"\ncopied to clipboard")
             pyperclip.copy(data[website]['password'])  # --> copy to clipboard
         else:
             messagebox.showerror(title="Ups...", message=f"No details for {website} exist.")
