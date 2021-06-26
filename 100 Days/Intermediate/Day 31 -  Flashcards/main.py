@@ -6,8 +6,6 @@ import os
 
 BACKGROUND_COLOR = "#B1DDC6"
 
-# 284
-
 try:
     data = pandas.read_csv("data/letters_to_learn.csv")
 except FileNotFoundError:
