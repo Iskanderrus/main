@@ -1,6 +1,8 @@
 from tkinter import *
 import pandas
 import random
+from PIL import ImageTk, Image
+import os
 
 BACKGROUND_COLOR = "#B1DDC6"
 
@@ -39,6 +41,15 @@ def is_known():
     data.to_csv('data/letters_to_learn.csv', index=False)
 
 
+def reset_data():
+    global data, to_learn, current_card
+    data = pandas.read_csv("data/data.csv")
+    os.remove("data/letters_to_learn.csv")
+    to_learn = data.to_dict(orient="records")
+    current_card = dict()
+    next_card()
+
+
 window = Tk()
 window.title("հայերեն")
 window.config(padx=50, pady=50, bg=BACKGROUND_COLOR)
@@ -52,15 +63,28 @@ card_background = canvas.create_image(400, 263, image=card_front_img)
 card_title = canvas.create_text(400, 158, text="Title", font=("Arial", 30, "italic"))
 card_word = canvas.create_text(400, 263, text="WORD", font=("Arial", 25, "bold"))
 canvas.config(bg=BACKGROUND_COLOR, highlightthickness=0)
-canvas.grid(row=0, column=0, columnspan=2)
+canvas.grid(row=1, column=0, columnspan=2)
 
 cross_image = PhotoImage(file="images/wrong.png", width=100, height=99)
 unknown_button = Button(image=cross_image, highlightthickness=0, borderwidth=0, command=next_card)
-unknown_button.grid(row=1, column=0)
+unknown_button.grid(row=2, column=0)
 
 check_image = PhotoImage(file="images/right.png", width=100, height=99)
 known_button = Button(image=check_image, highlightthickness=0, borderwidth=0, command=is_known)
-known_button.grid(row=1, column=1)
+known_button.grid(row=2, column=1)
+
+
+image = Image.open("images/reset.png")
+image = image.resize((100, 100), Image.ANTIALIAS)
+reset_image = ImageTk.PhotoImage(image)
+reset_button = Button(image=reset_image, highlightthickness=0, borderwidth=0, bg=BACKGROUND_COLOR, command=reset_data)
+reset_button.grid(row=0, column=2)
+
+image = Image.open("images/exit.png")
+image = image.resize((100, 100), Image.ANTIALIAS)
+exit_image = ImageTk.PhotoImage(image)
+exit_button = Button(image=exit_image, highlightthickness=0, borderwidth=0, bg=BACKGROUND_COLOR, command=window.destroy)
+exit_button.grid(row=0, column=3)
 
 next_card()
 
