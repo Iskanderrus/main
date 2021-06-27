@@ -49,7 +49,7 @@ def reset_data():
 
 
 window = Tk()
-window.title("հայերեն")
+window.title("Հայոց այբուբեն")
 window.config(padx=50, pady=50, bg=BACKGROUND_COLOR)
 
 flip_timer = window.after(3000, func=flip_card)
@@ -59,7 +59,7 @@ card_front_img = PhotoImage(file="images/card_front.png")
 card_back_img = PhotoImage(file="images/card_back.png")
 card_background = canvas.create_image(400, 263, image=card_front_img)
 card_title = canvas.create_text(400, 158, text="Title", font=("Arial", 30, "italic"))
-card_word = canvas.create_text(400, 263, text="WORD", font=("Arial", 25, "bold"))
+card_word = canvas.create_text(400, 263, text="WORD", font=("Arial", 22, "bold"))
 canvas.config(bg=BACKGROUND_COLOR, highlightthickness=0)
 canvas.grid(row=1, column=0, columnspan=2)
 
@@ -73,13 +73,13 @@ known_button.grid(row=2, column=1)
 
 
 image = Image.open("images/reset.png")
-image = image.resize((100, 100), Image.ANTIALIAS)
+image = image.resize((70, 70), Image.ANTIALIAS)
 reset_image = ImageTk.PhotoImage(image)
 reset_button = Button(image=reset_image, highlightthickness=0, borderwidth=0, bg=BACKGROUND_COLOR, command=reset_data)
 reset_button.grid(row=0, column=2)
 
 image = Image.open("images/exit.png")
-image = image.resize((100, 100), Image.ANTIALIAS)
+image = image.resize((70, 70), Image.ANTIALIAS)
 exit_image = ImageTk.PhotoImage(image)
 exit_button = Button(image=exit_image, highlightthickness=0, borderwidth=0, bg=BACKGROUND_COLOR, command=window.destroy)
 exit_button.grid(row=0, column=3)
