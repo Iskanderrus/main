@@ -11,7 +11,7 @@ import json
 def find_password():
     website = website_entry.get()
     try:
-        with open("password_manager_log.json", "r") as file:
+        with open("../../../../../Документы/password_manager_log.json", "r") as file:
             data = json.load(file)
 
     except FileNotFoundError:
@@ -65,18 +65,18 @@ def log_saver():
         messagebox.showerror(title="Entry Error", message="Ups... Please don't leave any blank fields!")
     else:
         try:
-            with open("password_manager_log.json", "r") as file:
+            with open("../../../../../Документы/password_manager_log.json", "r") as file:
                 # reading from the json file
                 data = json.load(file)
                 # updating data in the old version of the json file
                 data.update(new_data)
 
-            with open("password_manager_log.json", "w") as file:
+            with open("../../../../../Документы/password_manager_log.json", "w") as file:
                 # updating the json file with the updated data
                 json.dump(data, file, indent=4)
 
         except FileNotFoundError:
-            with open("password_manager_log.json", "w") as file:
+            with open("../../../../../Документы/password_manager_log.json", "w") as file:
                 # updating the json file with the updated data
                 json.dump(new_data, file, indent=4)
         website_entry.delete(4, END)
