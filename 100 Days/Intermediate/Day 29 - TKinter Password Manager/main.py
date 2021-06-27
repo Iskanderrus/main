@@ -3,8 +3,10 @@ from tkinter import messagebox
 from random import choice, shuffle, randint
 import pyperclip
 import json
+import datetime as dt
 
 
+now = dt.datetime()
 # ---------------------------- SEARCH FUNCTION ------------------------------- #
 
 
@@ -58,6 +60,7 @@ def log_saver():
         website: {
             "username": username,
             "password": password,
+            "logged_date": now,
         }
     }
 
