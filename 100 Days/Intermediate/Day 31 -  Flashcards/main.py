@@ -3,6 +3,7 @@ import pandas
 import random
 from PIL import ImageTk, Image
 import os
+from tkinter import messagebox
 
 BACKGROUND_COLOR = "#B1DDC6"
 
@@ -41,6 +42,8 @@ def is_known():
 
 def reset_data():
     global data, to_learn, current_card
+    messagebox.askokcancel(title="Do you really want to reset?", message="This action will delete all your learned "
+                                                                         "cards.")
     data = pandas.read_csv("data/data.csv")
     os.remove("data/letters_to_learn.csv")
     to_learn = data.to_dict(orient="records")
