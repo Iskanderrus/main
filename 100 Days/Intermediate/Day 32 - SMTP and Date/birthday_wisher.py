@@ -38,6 +38,7 @@ for index, row in df.iterrows():
                                 msg=f"Subject:{subject}\n\n"
                                     f"{message}"
                                 )
-
+    else:
+        print("No birthdays today ☺")
 
 
