@@ -20,11 +20,11 @@ with open(f"{path}/{file}", "r") as data:
 
 # -- Date checker -- #
 today = dt.datetime.today()
+today_date = (today.day, today.month)
 df = pd.read_csv('dates.csv')
-birthday_list = []
 for index, row in df.iterrows():
-    bd = dt.datetime(year=row["year"], month=row["month"], day=row["day"])
-    if bd.month == today.month and bd.month == today.month:
+    birthday = (row["day"], row["month"])
+    if today_date == birthday:
         name = row["name"]
         message = message.replace("[NAME]", name)
         subject_list = ["Happy birthday!!!", "Finally this day!", f"To my dear {name}"]
@@ -34,11 +34,8 @@ for index, row in df.iterrows():
             connection.starttls()  # used to secure connection...
             connection.login(user=my_email, password=mailru_password)
             connection.sendmail(from_addr=my_email,
-                                to_addrs="a.n.chasovskoy@gmail.com",
+                                to_addrs=row["email"],
                                 msg=f"Subject:{subject}\n\n"
                                     f"{message}"
                                 )
-    else:
-        print("No birthdays today ☺")
-
-
+            print(f"Message sent to {name}")
