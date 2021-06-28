@@ -53,6 +53,9 @@ while True:
                                     f"Have a look up! There is ISS over your head."
                                 )
             print(f"Message sent to {my_email}")
+    elif is_close(delta_lat, delta_lng):
+        print(f"Current ISS position: {delta_lat}, {delta_lng}")
+        print("ISS is close but it's not dark enough to see it.")
     else:
         print(f"Hours to sunset: {sunset - hour_now}")
         print(f"Hours to sunrise: {hour_now - sunrise}")
