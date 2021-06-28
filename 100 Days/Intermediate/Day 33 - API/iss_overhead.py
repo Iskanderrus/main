@@ -9,7 +9,7 @@ MY_LONG = 37.657400
 
 
 def is_close(d_lat, d_lng):  # Your position is within +5 or -5 degrees of the ISS position.
-    if d_lng <= 5 or d_lat <= 5:
+    if d_lng <= 5 and d_lat <= 5:
         return True
 
 
