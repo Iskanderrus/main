@@ -42,13 +42,17 @@ def is_known():
 
 def reset_data():
     global data, to_learn, current_card
-    messagebox.askokcancel(title="Do you really want to reset?", message="This action will delete all your learned "
-                                                                         "cards.")
-    data = pandas.read_csv("data/data.csv")
-    os.remove("data/letters_to_learn.csv")
-    to_learn = data.to_dict(orient="records")
-    current_card = dict()
-    next_card()
+    try:
+        messagebox.askokcancel(title="Do you really want to reset?", message="This action will delete all your learned "
+                                                                             "cards.")
+    except FileNotFoundError:
+        pass
+    else:
+        data = pandas.read_csv("data/data.csv")
+        os.remove("data/letters_to_learn.csv")
+        to_learn = data.to_dict(orient="records")
+        current_card = dict()
+        next_card()
 
 
 window = Tk()
@@ -73,7 +77,6 @@ unknown_button.grid(row=2, column=0)
 check_image = PhotoImage(file="images/right.png", width=100, height=99)
 known_button = Button(image=check_image, highlightthickness=0, borderwidth=0, command=is_known)
 known_button.grid(row=2, column=1)
-
 
 image = Image.open("images/reset.png")
 image = image.resize((70, 70), Image.ANTIALIAS)
