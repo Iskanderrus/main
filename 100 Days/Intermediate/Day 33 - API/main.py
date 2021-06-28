@@ -3,8 +3,8 @@ from tkinter import *
 
 
 def get_quote():
-    response = requests.get(url="https://api.kanye.rest")
-    canvas.itemconfig(quote_text, text=response.json()["quote"], font=("Arial", 15, "bold"), fill="black")
+    canvas.itemconfig(quote_text, text=requests.get(url="https://api.kanye.rest").json()["quote"],
+                      font=("Arial", 15, "bold"), fill="black")
 
 
 window = Tk()
