@@ -6,7 +6,7 @@ import json
 import datetime as dt
 
 
-now = dt.datetime()
+now = dt.datetime.today().strftime("%d/%m/%y")
 # ---------------------------- SEARCH FUNCTION ------------------------------- #
 
 
