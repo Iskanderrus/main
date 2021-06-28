@@ -9,7 +9,7 @@ MY_LONG = 37.657400
 
 
 def is_close(d_lat, d_lng):  # Your position is within +5 or -5 degrees of the ISS position.
-    if d_lng <= 5 or d_lat <= 5:
+    if d_lng <= 5 and d_lat <= 5:
         return True
 
 
@@ -54,12 +54,12 @@ while True:
                                 )
             print(f"Message sent to {my_email}")
     elif is_close(delta_lat, delta_lng):
-        print(f"Current ISS position: {delta_lat}, {delta_lng}")
+        print(f"Current ISS position: {iss_latitude}, {iss_longitude}")
         print("ISS is close but it's not dark enough to see it.")
     else:
         print(f"Hours to sunset: {sunset - hour_now}")
         print(f"Hours to sunrise: {hour_now - sunrise}")
-        print("Current ISS position: " + "{:.2f}".format(delta_lat), "{:.2f}".format(delta_lng))
+        print(f"Current ISS position: {iss_latitude}, {iss_longitude}")
 
     time.sleep(60)
 
