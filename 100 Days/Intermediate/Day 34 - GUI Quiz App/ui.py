@@ -39,14 +39,16 @@ class QuizInterface:
         check_image = PhotoImage(file="images/true.png", width=100, height=99)
         self.true_button = Button(
             image=check_image,
-            highlightthickness=0
+            highlightthickness=0,
+            command=self.answer_true
         )
         self.true_button.grid(row=2, column=0, padx=20, pady=20)
 
         cross_image = PhotoImage(file="images/false.png", width=100, height=99)
         self.false_button = Button(
             image=cross_image,
-            highlightthickness=0
+            highlightthickness=0,
+            command=self.answer_false
         )
         self.false_button.grid(row=2, column=1, padx=20, pady=20)
 
@@ -57,3 +59,9 @@ class QuizInterface:
     def get_next_question(self):
         q_text = self.quiz.next_question()
         self.canvas.itemconfig(self.question_text, text=q_text)
+
+    def answer_true(self):
+        self.quiz.check_answer("True")
+
+    def answer_false(self):
+        self.quiz.check_answer("False")
