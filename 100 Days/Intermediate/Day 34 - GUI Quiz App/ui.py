@@ -59,7 +59,7 @@ class QuizInterface:
     def get_next_question(self):
         self.canvas.config(bg="white")
         if self.quiz.still_has_questions():
-            self.score_label.config(text=f"Your Score: {self.quiz.score}/{self.quiz.question_number}")
+            self.score_label.config(text=f"Your Score: {self.quiz.score}/{self.quiz.question_number + 1}")
             q_text = self.quiz.next_question()
             self.canvas.itemconfig(self.question_text, text=q_text)
         else:
@@ -81,4 +81,3 @@ class QuizInterface:
         else:
             self.canvas.config(bg="red")
         self.window.after(1000, self.get_next_question)
-
