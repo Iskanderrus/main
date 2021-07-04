@@ -28,7 +28,7 @@ class QuizInterface:
 
         # Create label for score tracker
         self.score_label = Label(
-            text=f"Your Score: {self.quiz.score}/10",
+            text=f"Your Score: {self.quiz.score}/{self.quiz.question_number}",
             fg="white",
             font=("Arial", 13, "bold"),
             bg=THEME_COLOR
@@ -58,8 +58,14 @@ class QuizInterface:
 
     def get_next_question(self):
         self.canvas.config(bg="white")
-        q_text = self.quiz.next_question()
-        self.canvas.itemconfig(self.question_text, text=q_text)
+        if self.quiz.still_has_questions():
+            self.score_label.config(text=f"Your Score: {self.quiz.score}/{self.quiz.question_number}")
+            q_text = self.quiz.next_question()
+            self.canvas.itemconfig(self.question_text, text=q_text)
+        else:
+            self.canvas.itemconfig(self.question_text, text="You have reached end of the quiz.")
+            self.true_button.config(state="disabled")
+            self.false_button.config(state="disabled")
 
     def answer_true(self):
         is_right = self.quiz.check_answer("True")
